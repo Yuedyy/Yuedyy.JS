@@ -11,17 +11,17 @@
  	}
  	</style>
  	<script type="text/javascript">
- 	function colorChange(color){
+ 	function change(name,value){
  		var oDiv = document.getElementById('div1');
- 		oDiv.style.background = color;
+ 		oDiv.style[name] = value;
  	}
  	
  	</script>
 </head>
 <body>
-	<input type = "button" value = "变红" onclick = "colorChange('red')"/>
-	<input type = "button" value = "变绿" onclick = "colorChange('green')"/>
-	<input type = "button" value = "变黄" onclick = "colorChange('yellow')"/>
+	<input type = "button" value = "变宽" onclick = "change('width','500px')"/>
+	<input type = "button" value = "变高" onclick = "change('height','500px')"/>
+	<input type = "button" value = "变黄" onclick = "change('background','yellow')"/>
 	<div id = "div1"></div>
 </body>
 </html>
