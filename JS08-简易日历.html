@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="简易日历.css">
+	<style>
+	#div1{
+		width:200px;
+		height: 400px;
+		border:1px solid black;
+	}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var arr=['1月 xxxx','2月xxxx','3月xxxxx','4月','5月xxxx','6月xxxx'，'7月xxxxx','8月xxxx'，'9月xxxx','10月','11月xxx'，'12月xxx']
+			var oDiv = document.getElementById('tab');
+			var oLi = document.getElementsByTagName('li');
+			var oTxt = oDiv.getElementsByTagName('div1')[0];
+
+			for(var i=0;i<aLi.length;i++)
+			{
+				aLi[i].index=i;
+				aLi[i].onmouseover=function(){
+					for(var i=0;i<aLi.length;i++){aLi[i].className='';}
+					this.className='active';
+					oTex.innerHTML='<h2>'+(this.index+1)'</h2><p>'+arr[this.index]+'</p>';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id = "tab" class="calendar">
+		<ul>
+			<li class = "active"><h2>1</h2><p>JAN</p></li>
+			<li ><h2>2</h2><p>FEB</p></li>
+			<li ><h2>3</h2><p>MAR</p></li>
+			<li <h2>4</h2><p>APR</p></li>
+			<li ><h2>5</h2><p>MAY</p></li>
+			<li ><h2>6</h2><p>JUN</p></li>
+			<li ><h2>7</h2><p>JUL</p></li>
+			<li ><h2>8</h2><p>AUG</p></li>
+			<li ><h2>9</h2><p>SEP</p></li>
+			<li ><h2>10</h2><p>OCT</p></li>
+			<li ><h2>11</h2><p>NOV</p></li>
+			<li ><h2>12</h2><p>DEC</p></li>
+		</ul>
+	</div>
+	<div id = "div1">ssss</div> 
+</body>
+</html>
