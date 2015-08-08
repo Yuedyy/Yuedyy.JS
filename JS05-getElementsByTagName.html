@@ -19,7 +19,13 @@
 
 		//alert(aDiv.length);
 		//aDiv.style.background='red';错误演示，JS中，设置元素的样式和属性一次只能对一个元素设置
-		aDiv[1].style.background = 'red';
+		//aDiv[1].style.background = 'red';
+		var i = 0;
+		while(i<4){
+			aDiv[i].style.background='red';
+			alert(i);
+			i = i + 1;
+		}
 	}
 </script>
 </head>
