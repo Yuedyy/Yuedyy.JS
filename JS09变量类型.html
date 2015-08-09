@@ -10,9 +10,17 @@
 	var oBtn = document.getElementById('btn1');
 
 	oBtn.onclick=function(){
-		alert(oTxt1.value+oTxt2.value);
+		var n1 = parseFloat(oTxt1.value);
+		var n2 = parseFloat(oTxt2.value);
+		if (isNaN(n1))
+			{alert('您输入第一个数字有误');}
+		else if (isNaN(n2))
+			{alert('您输入第二个数字有误')}
+		else{	
+			alert(n1+n2);}
 	}
 }
+
 	</script>
 </head>
 <body>
