@@ -3,7 +3,7 @@
 <head>
 	<meta charset = "utf-8">
 	<title></title>
-	<script type="text/javascript">
+	<!--script type="text/javascript">
 		function show(){
 			var result = 0;
 			for(var i=0 ; i<arguments.length ; i++)
@@ -13,9 +13,39 @@
 			return result;
 		}
 		alert(show(1,2,3,4));
+	</script-->
+	<script type="text/javascript">
+	function css(obj , name , value){
+		if(arguments.length = 2)
+		{
+			return obj.style[name];
+		}
+		else if (arguments.length = 3)
+		{
+			obj.style[name]=value;
+		}
+	}
+	window.onload=function ()
+	{
+		var oDiv = document.getElementById('div1');
+		css(oDiv,'background-color','green');
+	}
 	</script>
+	<!--style> 
+	#div1 {width:200px;height:200px;background:red;}  
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oDiv = document.getElementById('div1');
+			if(oDiv.currentStyle)
+			alert(oDvi.currentStyle.width);
+			else
+			alert(getComputedStyle(oDiv,null).width);
+		}
+	</script-->
 </head>
 <body>
-
+	<div id = "div1"style="width:200px;height:200px;background:red;">
+</div>
 </body>
 </html>
