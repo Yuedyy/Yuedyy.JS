@@ -7,12 +7,13 @@
 	window.onload=function() {
 		var oUl =document.getElementById('ul1');
 		//alert(oUl.childNodes.length);
-		for (var i = 0 ; i<oUl.childNodes.length ; i++){
-			if(oUl.childNodes[i].nodeType==1){
-				oUl.childNodes[i].style.background='red';
+		alert(oUl.children.length);
+		for (var i = 0 ; i<oUl.children.length ; i++){
+			
+				oUl.children[i].style.background='blue';
 			}
 			//alert(oUl.childNodes[i].nodeType);
-		}
+		 
 	}
 	</script>
 </head>
