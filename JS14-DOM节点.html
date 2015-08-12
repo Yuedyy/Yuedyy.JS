@@ -5,24 +5,22 @@
 	<meta charset = "utf-8">
 	<script type="text/javascript">
 	window.onload=function() {
-		var oUl =document.getElementById('ul1');
-		//alert(oUl.childNodes.length);
-		alert(oUl.children.length);
-		for (var i = 0 ; i<oUl.children.length ; i++){
-			
-				oUl.children[i].style.background='blue';
+		var aA =document.getElementsByTagName('a');
+		for( var i = 0 ; i<aA.length ; i++){
+			aA[i].onclick=function(){
+				this.parentNode.style.display = 'none';
 			}
-			//alert(oUl.childNodes[i].nodeType);
-		 
+		}
+
 	}
 	</script>
 </head>
 <body>
 	<ul id = "ul1">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>askdjfklsdjl <a href="javascript:;">隐藏</a></li>
+		<li>askdj= <a href="javascript:;">隐藏</a></li>
+		<li>a啥的l <a href="javascript:;">隐藏</a></li>
+		<li>askd阿斯顿色法 <a href="javascript:;">隐藏</a></li>
 	</ul>
 
 </body>
