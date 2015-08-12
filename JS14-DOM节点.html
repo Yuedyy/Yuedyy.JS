@@ -5,22 +5,17 @@
 	<meta charset = "utf-8">
 	<script type="text/javascript">
 	window.onload=function() {
-		var aA =document.getElementsByTagName('a');
-		for( var i = 0 ; i<aA.length ; i++){
-			aA[i].onclick=function(){
-				this.parentNode.style.display = 'none';
-			}
-		}
+		var oUl = document.getElementById('ul1');
+		oUl.firstElementChild.style.background = "red";
 
 	}
 	</script>
 </head>
 <body>
-	<ul id = "ul1">
-		<li>askdjfklsdjl <a href="javascript:;">隐藏</a></li>
-		<li>askdj= <a href="javascript:;">隐藏</a></li>
-		<li>a啥的l <a href="javascript:;">隐藏</a></li>
-		<li>askd阿斯顿色法 <a href="javascript:;">隐藏</a></li>
+	<ul id = "ul1"> 
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
 	</ul>
 
 </body>
