@@ -11,10 +11,16 @@ window.onload=function(){
 
 	oBtn.onclick = function(){
 		var oLi = document.createElement('li');
-		var aLi = oLi.getElementsByTagName('li');
+		var aLi = oUl.getElementsByTagName('li');
 		oLi.innerHTML = oTxt.value;
 		//oUl.appendChild(oLi);
+		if(aLi.length>0)
+		{
 		oUl.insertBefore(oLi,aLi[0]);
+	}
+	else{
+		oUl.appendChild(oLi);
+	}
 	}
 }
 </script>
@@ -23,7 +29,6 @@ window.onload=function(){
 	<input id = "txt1" tyoe = "text" />
 	<input  id = "btn1"type  = "button" value = "创建LI"/>
 	<ul id = "ul1">
-		<li></li>
 	</ul>
 </body>
 </html>
