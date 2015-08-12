@@ -23,7 +23,7 @@ window.onload=function(){
 	}
 	}
 }
-</script-->
+</script>
 <script type="text/javascript">
 window.onload=function(){
 	var aA=document.getElementsByTagName('a');
@@ -35,15 +35,31 @@ window.onload=function(){
 		}
 	}
 }
+</script-->
+
+<script type="text/javascript">
+window.onload=function(){
+	var oUl = document.getElementById('ul1');
+	var oFrag = document.createDocumentFragment();
+
+	for(var i=0 ; i<1000 ; i++)
+	{
+		var oLi = document.createElement('li');
+
+		oFrag.appendChild(oLi);
+	}
+	oUl.appendChild(oFrag);
+}
 </script>
 </head>
 <body>
-	<input id = "txt1" tyoe = "text" />
+	<!--input id = "txt1" tyoe = "text" />
 	<input  id = "btn1"type  = "button" value = "创建LI"/>
 	<ul id = "ul1">
 		<li>asjdlk<a href="javascript:'">删除</a></li>
 		<li>ak<a href="javascript:'">删除</a></li>
-		<li>dlk<a href="javascript:'">删除</a></li
-	</ul>
+		<li>dlk<a href="javascript:'">删除</a></li>
+	</ul-->
+	<ul id = "ul1"></ul>
 </body>
 </html>
