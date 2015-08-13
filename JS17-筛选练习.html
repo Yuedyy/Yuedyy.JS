@@ -19,10 +19,23 @@ window.onload=function(){
 	var oBtn = document.getElementById('btn');
 
 	oBtn.onclick=function(){
-		var oLi = oUl1.children[0];
-		
-		//oUl1.removeChild(oLi);
-		oUl1.appendChild(oLi);
+		var aLi = oUl1.getElementsByTagName('li');
+		var arr=[];
+		 
+		 for(var i=0; i<aLi.length; i++)
+		 {
+		 	arr[i]=aLi[i];
+		 }
+		 arr.sort(function(li1,li2){
+		 	var n1=parseInt(li1.innerHTML);
+		 	var n2=parseInt(li2.innerHTML);
+
+		 	return n1-n2 ;
+		 });
+		for(var i=0;i<arr.length;i++)
+		{
+			oUl1.appendChild(arr[i]);
+		}
 	}
 }
 </script>
