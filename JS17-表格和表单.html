@@ -8,33 +8,23 @@
  			var oTab = document.getElementById('tab1');
  			var oBtn = document.getElementById('btn1');
  			var oTxt1 = document.getElementById('name');
- 			var oTxt2 = document.getElementById('age');
- 			var id = oTab.tBodies[0].rows.length+1;
+ 		
 
  			oBtn.onclick = function(){
- 				var oTr = document.createElement('tr');
+ 				for(var i = 0 ; i<oTab.tBodies[0].rows.length; i++)
+ 				{
+ 					var sTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+ 					var sTxt = oTxt1.value;
+ 					var arr = sTxt.split(' ');
 
- 				var oTd = document.createElement('td');
- 				oTd.innerHTML = id++; 
- 				oTr.appendChild(oTd);
+ 					oTab.tBodies[0].rows[i].style.background = '';
 
- 				var oTd = document.createElement('td');
- 				oTd.innerHTML = oTxt1.value; 
- 				oTr.appendChild(oTd);
-
- 				var oTd = document.createElement('td');
- 				oTd.innerHTML = oTxt2.value; 
- 				oTr.appendChild(oTd);
-
- 				var oTd = document.createElement('td');
- 				oTd.innerHTML = '<a href="javascript:;">删除</a> ';
- 				oTr.appendChild(oTd);
-
- 				oTd.getElementsByTagName('a')[0].onclick=function(){
- 					oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+ 					for(var j = 0; j<arr.length;j++){
+ 					if(sTab.search(arr[j])!=-1)
+ 						oTab.tBodies[0].rows[i].style.background = 'yellow';
+ 					}
  				}
 
- 				oTab.tBodies[0].appendChild(oTr);
  			}
 
  		}
@@ -42,8 +32,8 @@
 </head>                         
 <body>
 	姓名:<input id = "name"type = "text" />
-	年龄：<input id = "age"type = "text"/>
-	<input id ="btn1" type = "button" value = "添加"/>
+
+	<input id ="btn1" type = "button" value = "搜索"/> 
 
 	<table id = "tab1" width="500px" border="2">
 		<thead>
@@ -74,6 +64,24 @@
 			<tr>
 				<td>4</td>
 				<td>王五</td>
+				<td>21</td>
+				<td></td>
+			</tr>
+				<tr>
+				<td>4</td>
+				<td>李张</td>
+				<td>21</td>
+				<td></td>
+			</tr>
+				<tr>
+				<td>4</td>
+				<td>王三</td>
+				<td>21</td>
+				<td></td>
+			</tr>
+				<tr>
+				<td>4</td>
+				<td>张五</td>
 				<td>21</td>
 				<td></td>
 			</tr>
