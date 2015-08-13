@@ -17,11 +17,11 @@
  					var sTxt = oTxt1.value;
  					var arr = sTxt.split(' ');
 
- 					oTab.tBodies[0].rows[i].style.background = '';
+ 					oTab.tBodies[0].rows[i].style.display= 'none';
 
  					for(var j = 0; j<arr.length;j++){
  					if(sTab.search(arr[j])!=-1)
- 						oTab.tBodies[0].rows[i].style.background = 'yellow';
+ 						oTab.tBodies[0].rows[i].style.display= 'block';
  					}
  				}
 
