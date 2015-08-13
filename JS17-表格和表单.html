@@ -7,7 +7,15 @@
  		window.onload=function(){
  			var oTab = document.getElementById('tab1')
 
- 			alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+ 			//alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);
+
+ 			for(var i = 0 ; i<oTab.tBodies[0].rows.length; i++)
+ 			{
+ 				if(i%2)
+ 				{
+ 					oTab.tBodies[0].rows[i].style.background='#CCC';
+ 				}
+ 			}
  		}
 	</script>
 </head>
