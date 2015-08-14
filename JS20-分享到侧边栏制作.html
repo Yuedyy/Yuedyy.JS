@@ -26,9 +26,15 @@
 		var oDiv = document.getElementById('div1');
 		var timer = null;
 		
-		function Move(Dir,speed){
+		function Move(Dir){
 			clearInterval(timer);
 			timer=setInterval(function(){
+				var speed;
+				
+				if(oDiv.offsetLeft>Dir)
+				{speed=-10;}
+				else{speed=10;} 
+
 				if(oDiv.offsetLeft==Dir){
 					clearInterval(timer);
 				}
@@ -40,10 +46,10 @@
 
 		
 		oDiv.onmouseover=function(){
-			Move(0,10);
+			Move(0);
 		}
 		oDiv.onmouseout=function(){
-			Move(-200,-10);
+			Move(-200);
 		}
 	}
 	</script>
