@@ -19,7 +19,7 @@
 		var oDiv = document.getElementById('div1');
 		var timer = null;
 
-		clearInterval(timer);
+		clearInterval(timer);//先关闭原来的定时器
 		oBtn.onclick = function(){
 			timer=setInterval(function(){
 				var speed = 4;
@@ -27,7 +27,7 @@
 				{
 					clearInterval(timer);
 				}
-				else{oDiv.style.left = oDiv.offsetLeft+speed+'px';}
+				else{oDiv.style.left = oDiv.offsetLeft+speed+'px';}//停止定时器和执行定时器分隔开
 			},30)
 			
 		}
