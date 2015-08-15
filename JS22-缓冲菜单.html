@@ -23,10 +23,11 @@
 		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//兼容使用
 
 
-		//oDiv.style.top=document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop+'px';//可视区clientHeight
+		//oDiv.style.top=(document.documentElement.clientHeight-oDiv.offsetHeight)/2+scrollTop+'px';//可视区clientHeight
 
-		startMove(document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop);
+		//startMove(document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop);
 
+		startMove(parseInt((document.documentElement.clientHeight-oDiv.offsetHeight)/2+scrollTop));
 
 	}
 	var timer = null;
@@ -38,13 +39,15 @@
 			{
 				var speed=(iTarget-oDiv.offsetTop)/5;
 				speed=speed>0?Math.ceil(speed):Math.floor(speed);
-
+ 
 				if(oDiv.offsetTop==iTarget)
 					{
 						clearInterval(timer);
 					}
 				else
 					{
+						document.title=iTarget;
+						document.getElementById('txt1').value=oDiv.offsetTop;
 						oDiv.style.top=oDiv.offsetTop+speed+'px';
 					}
 			},30);
@@ -52,6 +55,7 @@
 	</script>
 </head>
 <body>
+	<input type = "text" id ="txt1" style="position:fixed; right:0px;top:0;"/>
 	<div id = "div1"></div>
 </body>
 </html>
