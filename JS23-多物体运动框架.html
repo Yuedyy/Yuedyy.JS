@@ -13,49 +13,23 @@
 		background-color: red;
 		border:1px solid black;
 		font-size: 14px;
+		filter:alpha(opacity:30);
+		opacity: 0.3;
 	}
 	</style>
 	<script >
 	window.onload=function(){
 		var oDiv1 = document.getElementById('div1');
-		var oDiv2 = document.getElementById('div2');
-		var oDiv3 = document.getElementById('div3');
-		var oDiv4 = document.getElementById('div4');
+		
+			
 			oDiv1.onmouseover=function()
 			{
-				startMove(this,400,'height');
+				startMove(this,100,'opacity');
 			}
 			oDiv1.onmouseout=function()
 			{
-				startMove(this,100,'height');
+				startMove(this,30,'opacity');
 			}
-			oDiv2.onmouseover=function()
-			{
-				startMove(this,400,'width');
-			}
-			oDiv2.onmouseout=function()
-			{
-				startMove(this,100,'width');
-			}
-			oDiv3.onmouseover=function()
-			{
-				startMove(this,50,'font-size');
-			}
-			oDiv3.onmouseout=function()
-			{
-				startMove(this,14,'font-size');
-			}
-			oDiv4.onmouseover=function()
-			{
-				startMove(this,40,'border-width');
-			}
-			oDiv4.onmouseout=function()
-			{
-				startMove(this,5,'border-width');
-			}
-		
-
-
 
 	} 
 
@@ -74,10 +48,17 @@
 		clearInterval(obj.timer);
 		obj.timer=setInterval(function()
 		{
-			var cur=parseInt(getStyle(obj,name));
-			var speed=(iTarget-cur)/8;
+			var cur=0;
+			var speed=(iTarget-cur)/2;
 
-
+			if (name=='opacity')
+			{
+				cur=parseFloat(getStyle(obj,name));
+			}
+			else
+			{
+				 cur=parseInt(getStyle(obj,name));
+			}
 			speed=speed>0?Math.ceil(speed):Math.floor(speed);
 
 			if (cur==iTarget)
@@ -85,8 +66,16 @@
 				clearInterval(obj.timer);
 			}
 			else{
+				if(name=='opacity')
+				{
 
+					obj.style.filter='alpha(opacity:'+(cur+speed)+")";
+					obj.style.opacity=(cur+speed)/100;
+					document.getElementById('txt').value=obj.style.opacity
+				}
+				else{
 				obj.style[name]=cur+speed+'px';
+				}
 			}
 		},30);
 	}
@@ -94,8 +83,6 @@
 </head>
 <body>
 <div id = "div1">变高</div>
-<div id = "div2">变宽</div>
-<div id = "div3">slkdjljdslkj</div>
-<div id = "div4">alsdjk</div>
+<input type = 'text' id = "txt"/>
 </body>
 </html>
