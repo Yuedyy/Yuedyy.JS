@@ -4,43 +4,54 @@
 	<title></title>
 	<meta charset = "utf-8">
 	<style type="text/css">
+	body{
+		height: 2000px;
+	}
 	#div1 {
-		width: 200px;
-		height: 100px;
+		width: 100px;
+		height: 150px;
 		background-color: red;
 		position: absolute;
-	 	left: 600px;
-	 	top: 50px;
-	}
-	#div2{
-		width: 1px;
-		height: 300px;
-		position: absolute;
-		left: 300px;
-		top: 0;
-		background-color: black;
-	}
-	</style>
-	<script type="text/javascript">
-	function startMove()
-	{
-		var oDiv= document.getElementById('div1');
-		var timer= null;
-
-		timer = setInterval(function() 
-			{
-				var speed=(300-oDiv.offsetLeft)/20;
-
-				speed=speed>0?Math.ceil(speed): Math.floor(speed) ;
-				oDiv.style.left=oDiv.offsetLeft+speed+'px';
-			},30)
+		right:0;
+		bottom:0;
 	}
 	
+	</style>
+	<script type="text/javascript">
+	window.onscroll=function(){
+		var oDiv =document.getElementById('div1');
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;//兼容使用
+
+
+		//oDiv.style.top=document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop+'px';//可视区clientHeight
+
+		startMove(document.documentElement.clientHeight-oDiv.offsetHeight+scrollTop);
+
+
+	}
+	var timer = null;
+	function startMove(iTarget)
+	{
+		var oDiv =document.getElementById('div1');
+		clearInterval(timer);
+		timer = setInterval(function()
+			{
+				var speed=(iTarget-oDiv.offsetTop)/5;
+				speed=speed>0?Math.ceil(speed):Math.floor(speed);
+
+				if(oDiv.offsetTop==iTarget)
+					{
+						clearInterval(timer);
+					}
+				else
+					{
+						oDiv.style.top=oDiv.offsetTop+speed+'px';
+					}
+			},30);
+	}
 	</script>
 </head>
 <body>
-	<input id = "btn1" type = "button" value = "开始" onclick="startMove()"/>
 	<div id = "div1"></div>
-	<div id ="div2"></div>
 </body>
 </html>
