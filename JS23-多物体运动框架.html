@@ -3,55 +3,7 @@
 <head>
 	<title></title>
 	<meta charset = 'utf-8'>
-	<!--style type="text/css">
-	div{
-		width: 100px;
-		height: 50px;
-		background-color: red;
-		margin: 10px;
 	
-	}
-	</style>
-	<script type="text/javascript">
-	//var timer=null;
-
-	window.onload=function(){
-		var aDiv = document.getElementsByTagName('div');
-
-		for(var i=0; i<aDiv.length; i++)
-		{
-			aDiv[i].timer=null;
-			aDiv[i].onmouseover=function()
-			{
-				startMove(this,400);
-			}
-			aDiv[i].onmouseout=function()
-			{
-				startMove(this,100);
-			}
-		}
-	}
-	
-	function startMove(obj,iTarget)
-	{
-		clearInterval(obj.timer);
-		obj.timer=setInterval(function()
-			{
-				var speed=(iTarget-obj.offsetWidth)/6;
-
-				speed=speed>0?Math.ceil(speed):Math.floor(speed);
-
-				if (obj.offsetWidth==iTarget)
-				{
-					clearInterval(obj.timer);
-				}
-				else
-				{
-					obj.style.width = obj.offsetWidth+speed+'px';
-				}
-			},30);
-	}
-	</script-->
 	<style type="text/css">
 	div{
 		width: 100px;
@@ -59,53 +11,91 @@
 		margin: 10px;
 		float: left;
 		background-color: red;
-		filter:alpha(opacity:30);
-		opacity: 0.3;
+		border:1px solid black;
+		font-size: 14px;
 	}
 	</style>
-	<script type="text/javascript">
+	<script >
 	window.onload=function(){
-		var aDiv = document.getElementsByTagName('div');
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var oDiv3 = document.getElementById('div3');
+		var oDiv4 = document.getElementById('div4');
+			oDiv1.onmouseover=function()
+			{
+				startMove(this,400,'height');
+			}
+			oDiv1.onmouseout=function()
+			{
+				startMove(this,100,'height');
+			}
+			oDiv2.onmouseover=function()
+			{
+				startMove(this,400,'width');
+			}
+			oDiv2.onmouseout=function()
+			{
+				startMove(this,100,'width');
+			}
+			oDiv3.onmouseover=function()
+			{
+				startMove(this,50,'font-size');
+			}
+			oDiv3.onmouseout=function()
+			{
+				startMove(this,14,'font-size');
+			}
+			oDiv4.onmouseover=function()
+			{
+				startMove(this,40,'border-width');
+			}
+			oDiv4.onmouseout=function()
+			{
+				startMove(this,5,'border-width');
+			}
+		
 
-		for(var i=0; i<aDiv.length; i++)
+
+
+	} 
+
+	function getStyle(obj,name){
+		if(obj.currentStyle)
 		{
-			aDiv[i].alpha=30;
-			aDiv[i].onmouseover=function(){
-				startMove(this,100);
-			}
-			aDiv[i].onmouseout=function(){
-				startMove(this,30);
-			}
+			return obj.currentStyle[name];
+		}
+		else
+		{
+			return getComputedStyle(obj,null)[name];
 		}
 	}
-
-	//var alpha=30;
-	function startMove(obj,iTarget)
+	function startMove(obj,iTarget,name)
 	{
 		clearInterval(obj.timer);
-		setInterval(function()
+		obj.timer=setInterval(function()
 		{
-			var speed=(iTarget-obj.alpha)/8;
+			var cur=parseInt(getStyle(obj,name));
+			var speed=(iTarget-cur)/8;
+
+
 			speed=speed>0?Math.ceil(speed):Math.floor(speed);
 
-			if (obj.alpha==iTarget)
+			if (cur==iTarget)
 			{
 				clearInterval(obj.timer);
 			}
 			else{
-				obj.alpha+=speed;
 
-				obj.style.filter='alpha(opacity:'+obj.alpha+');'
-				obj.style.opacity=obj.alpha/100;
+				obj.style[name]=cur+speed+'px';
 			}
 		},30);
 	}
 	</script>
 </head>
 <body>
-<div></div>
-<div></div>
-<div></div>
-<div></div>
+<div id = "div1">变高</div>
+<div id = "div2">变宽</div>
+<div id = "div3">slkdjljdslkj</div>
+<div id = "div4">alsdjk</div>
 </body>
 </html>
