@@ -51,7 +51,7 @@
 			var cur=0;
 			if (name=='opacity')
 			{
-				cur=parseFloat(getStyle(obj,name))*100;
+				cur=Math.round(parseFloat(getStyle(obj,name))*100);
 			}
 			else
 			{
