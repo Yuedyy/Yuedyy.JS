@@ -4,34 +4,32 @@
 	<title></title>
 	<meta charset = "utf-8">
 </head>
-<style type="text/css">
-div{
-	padding:100px;
-
-}
+<style>
+div{width:400px; height: 400px; background: #CCC; display:none;}
 </style>
-<!--script type="text/javascript">
+<script type="text/javascript">
 window.onload=function()
 {
-	 document.onclick=function(ev)
-	 {
+	var oBtn=document.getElementById('btn1');
+	var oDiv=document.getElementById('div1');
 
-	 	//alert(event.clientX+','+event.clientY);
-
-	 	//alert(ev.clientX+','+ev.clientY);
-	 	var oEvent=event||ev;
-
-	 	alert(oEvent.clientX+","+oEvent.clientY);
-	 }
+	oBtn.onclick=function(ev)
+		{
+			var oEvent=event||ev;
+			oDiv.style.display='block';
+			oEvent.cancelBubble=true;
+		}
+	
+	
+	document.onclick=function()
+	{
+		oDiv.style.display="none";
+	}
 }
-</script-->
-<body>
-	<div style = "background:#CCC" onclick="alert(this.style.background)">
-		<div style = "background:purple" onclick="alert(this.style.background)">
-			<div style = "background:orange" onclick="alert(this.style.background)">
+</script>
 
-			</div>
-		</div>
-	</div>
+<body>
+	<input id = "btn1" type="button" value = "显示"/>
+	<div id = "div1"></div>
 </body>
 </html>
