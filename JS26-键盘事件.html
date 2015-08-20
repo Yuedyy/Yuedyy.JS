@@ -5,33 +5,35 @@
 	<meta charset ="utf-8">
 </head>
 <style type="text/css">
-div{
-	width:100px;
-	height: 100px;
-	background-color: #CCC;
-	position: absolute;
-}
+
 </style>
 <script type="text/javascript">
-document.onkeydown=function(ev)
+window.onload=function()
 {
-	var oEvent=ev||event;
-	var oDiv=document.getElementById('div1');
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oBtn = document.getElementById('btn1');
 
-
-	if(oEvent.keyCode==37)
+	oBtn.onclick=function()
 	{
-		oDiv.style.left=oDiv.offsetLeft-10+'px';
+		oTxt2.value+=oTxt1.value+'\n';
+		oTxt1.value='';
 	}
-	else if (oEvent.keyCode==39)
+	oTxt1.onkeydown=function(ev)
 	{
-		oDiv.style.left=oDiv.offsetLeft+10+'px';
-		oDiv.style.left=oDiv.offsetLeft+10+'px';
-	
+		var oEvent=ev||event;
+
+		if(oEvent.keyCode==13&&oEvent.ctrlKey)
+		{
+			oTxt2.value+=oTxt1.value+'\n';
+			oTxt1.value='';
+		}
 	}
 }
 </script>
 <body>
-<div id = "div1"></div>
+<input type = "text" id ="txt1" />
+<input type = "button" id = "btn1"value = "发布"/>
+<textarea id = "txt2" rows="10"cols = "40"></textarea>
 </body>
 </html>
