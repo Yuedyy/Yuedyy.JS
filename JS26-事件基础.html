@@ -5,7 +5,7 @@
 	<meta charset = "utf-8">
 </head>
 <style>
-div{width:50px; height: 50px; background: #CCC; position:absolute;}
+div{width:10px; height: 10px; background: orange; position:absolute;}
 </style>
 <script type="text/javascript">
 function getPos(ev)
@@ -17,16 +17,56 @@ function getPos(ev)
 document.onmousemove=function(ev)
 {
 	var oEvent = event||ev;
-	var oDiv=document.getElementById('div1');
+	var aDiv=document.getElementsByTagName('div');
 	var Pos=getPos(oEvent);
 
-	oDiv.style.left=Pos.x+'px';
-	oDiv.style.top=Pos.y+'px';
+	for(var i=aDiv.length-1; i>0; i--)
+	{
+		aDiv[i].style.left=aDiv[i-1].offsetLeft+'px';
+		aDiv[i].style.top=aDiv[i-1].offsetTop+'px';
+	}
+	aDiv[0].style.left=Pos.x+'PX';
+	aDiv[0].style.top = Pos.y+'px';
 
 }
 </script>
 
-<body style = "height:2000px;">
-	<div id = "div1"></div>
+<body>
+<div></div>	
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>	
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>	
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>	
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
 </body>
 </html>
