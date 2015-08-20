@@ -26,8 +26,27 @@ window.onload=function(){
 		document.onmousemove=function(ev)
 		{
 			var oEvent=event||ev;
-			 oDiv.style.left=oEvent.clientX-disX+'PX';
-			 oDiv.style.top=oEvent.clientY-disY+'px';
+			var l=oEvent.clientX-disX;
+			var t = oEvent.clientY-disY;
+		if(l<0)
+			{
+				l=0;
+			}
+			else if(l>document.documentElement.clientWidth-oDiv.offsetWidth)
+			{
+				l=document.documentElement.clientWidth-oDiv.offsetWidth;
+			}
+			
+			if(t<0)
+			{
+				t=0;
+			}
+			else if(t>document.documentElement.clientHeight-oDiv.offsetHeight)
+			{
+				t=document.documentElement.clientHeight-oDiv.offsetHeight;
+			}
+			 oDiv.style.left=l+'PX';
+			 oDiv.style.top=t+'px';
 
 		}
 		document.onmouseup=function(ev)
