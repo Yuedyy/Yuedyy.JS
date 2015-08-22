@@ -39,8 +39,10 @@ window.onload=function(){
 		{
 			oDiv.onmousemove=null;
 			oDiv.onmouseup=null;
-		}
 
+			oDiv.releaseCapture();//释放捕获
+		}
+		//使用setCapture后，文字，图片上就不会加事件了只会加在div身上。
 		 oDiv.setCapture();
 		return false;
 	}
