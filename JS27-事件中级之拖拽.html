@@ -18,14 +18,7 @@ window.onload=function(){
 
 	var disX=0;
 	var disY=0;
-	oDiv.onmousedown=function(ev)
-	{
-		var oEvent=event||ev;
-		disX=oEvent.clientX-oDiv.offsetLeft;
-		disY=oEvent.clientY-oDiv.offsetTop;
-
-
-		oDiv.onmousemove=function(ev)
+	function mouseMove(ev)
 		{
 			var oEvent=event||ev;
 			var l=oEvent.clientX-disX;
@@ -35,19 +28,38 @@ window.onload=function(){
 			 oDiv.style.top=t+'px';
 
 		}
-		oDiv.onmouseup=function(ev)
+		function mouseUp(ev)
+			{
+				this.onmousemove=null;
+				this.onmouseup=null;
+				if(oDiv.setCapture)
+				{
+					oDiv.releaseCapture();
+				}//释放捕获
+			}
+		oDiv.onmousedown=function(ev)
 		{
-			oDiv.onmousemove=null;
-			oDiv.onmouseup=null;
+			var oEvent=event||ev;
+			disX=oEvent.clientX-oDiv.offsetLeft;
+			disY=oEvent.clientY-oDiv.offsetTop;
 
-			oDiv.releaseCapture();//释放捕获
+		
+		if(oDiv.setCapture){
+		
+			oDiv.onmousemove=mouseMove;
+			oDiv.onmouseup=mouseUp;
+			//使用setCapture后，文字，图片上就不会加事件了只会加在div身上。
+			 oDiv.setCapture();
 		}
-		//使用setCapture后，文字，图片上就不会加事件了只会加在div身上。
-		 oDiv.setCapture();
+		else{
+
+				document.onmousemove=mouseMove;
+				document.onmouseup=mouseUp;
+			
+		}
 		return false;
 	}
-
-}
+	}
 	</script>
 </head>
 <body>
