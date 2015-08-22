@@ -10,10 +10,17 @@
 		position: absolute;
 		background-color: #CCC;
 	}
+	#div2{
+		width: 400px;
+		height: 400px;
+		position: relative;
+		background:black;
+	}
 	</style>
 	<script type="text/javascript">
 window.onload=function(){
 	var oDiv=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
 	var disX=0;
 	var disY=0;
 	oDiv.onmousedown=function(ev)
@@ -32,18 +39,18 @@ window.onload=function(){
 			{
 				l=0;
 			}
-			else if(l>document.documentElement.clientWidth-oDiv.offsetWidth)
+			else if(l>oDiv2.offsetWidth-oDiv.offsetWidth)
 			{
-				l=document.documentElement.clientWidth-oDiv.offsetWidth;
+				l=oDiv2.offsetWidth-oDiv.offsetWidth;
 			}
 			
 			if(t<0)
 			{
 				t=0;
-			}
-			else if(t>document.documentElement.clientHeight-oDiv.offsetHeight)
+			} 
+			else if(t>oDiv2.offsetHeight-oDiv.offsetHeight)
 			{
-				t=document.documentElement.clientHeight-oDiv.offsetHeight;
+				t=oDiv2.offsetHeight-oDiv.offsetHeight;
 			}
 			 oDiv.style.left=l+'PX';
 			 oDiv.style.top=t+'px';
@@ -61,6 +68,8 @@ window.onload=function(){
 	</script>
 </head>
 <body>
-<div id = "div1"></div>
+<div id = "div2">
+	<div id = "div1"></div>
+</div>
 </body>
 </html>
