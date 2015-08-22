@@ -5,8 +5,8 @@
 	<title></title>
 	<style type="text/css">
 	#div1{
-		width: 100px;
-		height: 100px;
+		width: 50px;
+		height: 50px;
 		position: absolute;
 		background-color: #CCC;
 	}
@@ -35,7 +35,7 @@ window.onload=function(){
 			var oEvent=event||ev;
 			var l=oEvent.clientX-disX;
 			var t = oEvent.clientY-disY;
-		if(l<0)
+		if(l<50)
 			{
 				l=0;
 			}
@@ -44,7 +44,7 @@ window.onload=function(){
 				l=oDiv2.offsetWidth-oDiv.offsetWidth;
 			}
 			
-			if(t<0)
+			if(t<50)
 			{
 				t=0;
 			} 
