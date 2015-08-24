@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 	<meta charset = "utf-8">
-	<!--script type="text/javascript">
+	<script type="text/javascript">
 	function createPerson(name,qq)//构造函数，构建一个对象，工厂方式
 	{
 		//原料
@@ -13,31 +13,33 @@
 		this.name = name;
 		this.qq =qq;
 
-		this.showName = function()
-		{
-			alert('我的名字'+this.name);
-
-		}
-
-		this.shoQQ = function()
-		{
-			alert('我的QQ'+this.qq);
-		}
+		
 
 		//出厂
 		//系统会：return obj;
 	}
 	
-	var obj= new createPerson('blue','222222222');
-	var obj2 = new createPerson('sldj','333333333')
+
+	createPerson.prototype.showName = function()
+		{
+			alert('我的名字'+this.name);
+
+		}
 	
+	createPerson.prototype.shoQQ = function()
+		{
+			alert('我的QQ'+this.qq);
+		}
+	var obj= new createPerson('blue','222222222');
+	var obj2 = new createPerson('sldj','333333333');
+
 	obj.showName();
 	obj.shoQQ();
 
 	obj2.showName();
 	obj2.shoQQ();
-	</script-->
-	<script>
+	</script>
+	<!--script>
 	var arr1 = new Array(12,23,14345,34);
 	var arr2 = new Array(12,21);
 	
@@ -55,7 +57,7 @@
 	alert(arr1.sum());
 
 	alert(arr2.sum());
-	</script>
+	</script-->
 </head>
 <body>
 
