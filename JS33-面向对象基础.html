@@ -4,24 +4,33 @@
 	<title></title>
 	<meta charset = "utf-8">
 	<script type="text/javascript">
-	var obj=new Object();
+	function createPerson(name,qq){
+		var obj=new Object();
 
-	obj.name = 'blue';
-	obj.qq = '765495621';
+		obj.name = name;
+		obj.qq =qq;
 
-	obj.showName = function()
-	{
-		alert('我的名字'+this.name);
+		obj.showName = function()
+		{
+			alert('我的名字'+this.name);
 
+		}
+
+		obj.shoQQ = function()
+		{
+			alert('我的QQ'+this.qq);
+		}
+		return obj;
 	}
-
-	obj.shoQQ = function()
-	{
-		alert('我的QQ'+this.qq);
-	}
-
+	
+	var obj= createPerson('blue','222222222');
+	var obj2 = createPerson('sldj','333333333')
+	
 	obj.showName();
 	obj.shoQQ();
+
+	obj2.showName();
+	obj2.shoQQ();
 	</script>
 </head>
 <body>
