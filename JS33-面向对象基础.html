@@ -4,18 +4,14 @@
 	<title></title>
 	<meta charset = "utf-8">
 	<script type="text/javascript">
-	function aaa(){
-		alert('abc');
+	var arr = [123,2,3,4];
+
+	arr.a = 12;
+	arr.show=function()
+	{
+		alert(this.a);
 	}
-
-	var arr = [1,2,3];
-
-	arr.aaa=function(){
-		alert('abc');
-	}
-
-	aaa();
-	arr.aaa();
+	arr.show();
 	</script>
 </head>
 <body>
