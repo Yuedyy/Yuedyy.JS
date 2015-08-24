@@ -39,11 +39,13 @@
 	</script-->
 	<script>
 	var arr1 = new Array(12,23,14345,34);
-	var arr1 = new Array(12,23);
-	arr1.sum = function()//行间样式
+	var arr2 = new Array(12,21);
+	
+	Array.prototype.sum=function()
+	//arr1.sum = function()//行间样式
 	{ 
 		var result = 0;
-		for(var i =0 ; i <arr1.length; i++)
+		for(var i =0 ; i <this.length; i++)
 		{
 			result+=this[i];
 		}
@@ -51,6 +53,8 @@
 	}
 
 	alert(arr1.sum());
+
+	alert(arr2.sum());
 	</script>
 </head>
 <body>
