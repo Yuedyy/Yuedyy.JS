@@ -4,12 +4,24 @@
 	<title></title>
 	<meta charset = "utf-8">
 	<script type="text/javascript">
-	function show ()
+	var obj=new Object();
+
+	obj.name = 'blue';
+	obj.qq = '765495621';
+
+	obj.showName = function()
 	{
-		alert(this);
+		alert('我的名字'+this.name);
 
 	}
-	show();
+
+	obj.shoQQ = function()
+	{
+		alert('我的QQ'+this.qq);
+	}
+
+	obj.showName();
+	obj.shoQQ();
 	</script>
 </head>
 <body>
