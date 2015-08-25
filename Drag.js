@@ -7,6 +7,7 @@ function Drag(id){
 
 		this.oDiv.onmousedown =function(ev){
 			_this.fnDown(ev);
+			return false;
 		};
 
 	}
@@ -18,7 +19,7 @@ function Drag(id){
 
 			document.onmousemove=function(ev){
 				_this.fnMove(ev);
-			};
+			} ;
 			document.onmouseup=function(){
 				_this.fnUp();
 			};
