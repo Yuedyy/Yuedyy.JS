@@ -5,24 +5,32 @@
 	<title></title>
 </head>
 <script type="text/javascript">
-var json=
-	{
-		name : 'blue',
-		QQ:'123456789',
+function A()
+{
+	this.abc=12;
+}
 
-		showName : function()
-		{
-			alert('我的名字叫： '+this.name);
-		},
+A.prototype.show=function(){
+	alert(this.abc);
+}
 
-		showQQ : function()
-		{
-			alert('我的QQ是: '+ this.QQ);
-		}
-	}
+//继承A
 
-	json.showName();
-	json.showQQ();
+function B(){
+	A.call(this);        
+}
+
+for(var i in A.prototype)
+{
+	B.prototype[i]=A.prototype;
+}
+
+B.prototype.fn = function(){
+	alert('abc');
+}
+var obj = new A();
+obj.fn();
+
 </script>
 <body>
 
