@@ -8,11 +8,38 @@
 	{
 		var oDate=new Date();
 		oDate.setDate(oDate.getDate()+iDay);
-		document.cookie=name+'='+value+';expires='+oDate;
+		document.cookie=name+'='+value+'; expires='+oDate;
 	}
 
-	setCookie('username','dancingblue',12);
-	setCookie('password','123456',12);
+	setCookie('username','blue',12);
+
+	function getCookie(name)
+	{
+		var arr=document.cookie.split('; ');
+
+		for(var i=0; i<arr.length;i++)
+		{
+			var arr2=arr[i].split('=');
+
+			if (arr[0]==name)
+			{
+				return arr2[1];
+			}
+		}
+		return '';
+
+	}
+
+	alert(getCookie('username'));
+	function removeCookie(name)
+	{
+		setCookie(name,1,-1);
+	}
+	//alert(getCookie('username'));
+	
+	//removeCookie(username);
+
+	//alert(document.cookie);
 	</script>
 </head>
 <body>
