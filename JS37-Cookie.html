@@ -4,13 +4,15 @@
 	<title></title>
 	<meta charset = "utf-8">
 	<script type="text/javascript">
-	var oDate = new Date();
-	oDate.setDate(oDate.getDate()+14);
+	function setCookie(name,value,iDay)
+	{
+		var oDate=new Date();
+		oDate.setDate(oDate.getDate()+iDay);
+		document.cookie=name+'='+value+';expires='+oDate;
+	}
 
-	//document.cookie='blue=234;expires='+oDate;
-	
-	alert(document.cookie);
-
+	setCookie('username','dancingblue',12);
+	setCookie('password','123456',12);
 	</script>
 </head>
 <body>
