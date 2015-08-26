@@ -4,11 +4,18 @@
 	<meta charset = "utf-8">
 	<title></title>
 	<script>
-	alert(window.navigator.userAgent);
-	alert(window.location);
+	window.onload=function()
+	{
+		var oBtn=document.getElementById('btn1');
+		document.onclick = function()
+		{
+			alert('宽'+document.documentElement.clientWidth+'高'+document.documentElement.clientHeight+'scrollTop'+document.body.scrollTop)
+
+		}
+	}
 	</script>
 </head>
-<body>
-<input type = "button" value="tan" onclick = "window.location='http://www.baidu.com/';"/>
+<body style= "height:2000px">
+<input id ="btn1" type="button" value="可视区大小" />
 </body>
 </html>
