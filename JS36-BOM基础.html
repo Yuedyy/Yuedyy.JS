@@ -4,23 +4,11 @@
 	<meta charset = "utf-8">
 	<title></title>
 	<script>
-	window.onload=function()
-	{
-		var oTxt =document.getElementById('txt1');
-		var oBtn = document.getElementById('btn1');
-
-		oBtn.onclick = function()
-		{
-			var oNewWin =  window.open('about:blank');
-
-			oNewWin.document.write(oTxt.value);
-		}
-	}
+	alert(window.navigator.userAgent);
+	alert(window.location);
 	</script>
 </head>
 <body>
-<textarea id = "txt1"rows = "10" cols="40"></textarea><br>
-<input id ="btn1" type = "button" value = "运行"/>
-
+<input type = "button" value="tan" onclick = "window.location='http://www.baidu.com/';"/>
 </body>
 </html>
