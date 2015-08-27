@@ -31,11 +31,11 @@
 		alert(arr);
 	</script-->
 	<script type="text/javascript">
-	var re = /a/i;//只代表a,对大小写敏感
+	var str = "asdf 1 23 1 003 vczdlfjlk";
+	
+	var re=/\d+/g;
 
-	var str='Abcdedf';
-
-	alert(str.search(re));
+	alert(str.match(re));
 
 	</script>
 </head>
