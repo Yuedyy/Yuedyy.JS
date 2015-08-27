@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8">
+	<script type="text/javascript">
+	var str = '12 fff 87 er234 sdd -==-= +fa809';
+	var arr=[];
+	var tmp='';
+
+	for (var i=0; i<str.length; i++)
+	{
+		if (str.charAt(i)>='0'&&str.charAt(i)<='9')
+		{
+			tmp+=str.charAt(i);//数字放进字符串tmp中
+		}
+		else
+		{
+			if (tmp)
+			{
+				arr.push(tmp);
+				tmp='';//tmp中的值加到数组中，清空字符串
+			}
+		}
+	}
+	if (tmp)
+		{
+			arr.push(tmp);
+			tmp='';//tmp中的值加到数组中，清空字符串
+		}
+		alert(arr);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
